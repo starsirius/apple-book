@@ -9,6 +9,7 @@ express = require "express"
 Backbone = require "backbone"
 sharify = require "sharify"
 path = require "path"
+less = require "less-middleware"
 
 # Inject some constant data into sharify
 sharify.data =
@@ -36,7 +37,7 @@ module.exports = (app) ->
   if "development" is NODE_ENV
     app.use express.errorHandler()
     # Compile assets on request in development
-    app.use require("stylus").middleware
+    app.use less
       src: path.resolve(__dirname, "../")
       dest: path.resolve(__dirname, "../public")
     app.use require("browserify-dev-middleware")
@@ -49,7 +50,8 @@ module.exports = (app) ->
     app.use "/__api", require("../test/helpers/integration.coffee").api
 
   # Mount apps
-  app.use require "../apps/commits"
+  #app.use require "../apps/commits"
+  app.use require "../apps/home"
 
   # More general middleware
   app.use express.static(path.resolve __dirname, "../public")

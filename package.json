@@ -7,6 +7,7 @@
   "dependencies": {
     "express": "*",
     "jade": "*",
+    "swig": "*",
     "sharify": "*",
     "backbone": "*",
     "backbone-super-sync": "*",
@@ -16,6 +17,7 @@
     "components-jquery": "git://github.com/components/jquery.git",
     "browserify": "*",
     "stylus": "*",
+    "less-middleware": "*",
     "jadeify2": "*",
     "browserify-dev-middleware": "*",
     "should": "*",
